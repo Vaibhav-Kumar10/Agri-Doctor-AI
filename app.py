@@ -6,7 +6,7 @@ import os
 
 # Paths
 MODEL_DIR = "model"
-MODEL_FILE = "plant_disease_model.keras"  # or "plant_disease_model.h5"
+MODEL_FILE = "plant_disease_model.keras" 
 MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILE)
 
 UPLOAD_FOLDER = "uploads"
@@ -41,6 +41,7 @@ class_names = [
     "Tomato_Septoria_leaf_spot",
 ]
 
+
 def predict(image: Image.Image):
     image = image.resize((224, 224)).convert("RGB")
     img_array = np.array(image) / 255.0
@@ -49,6 +50,7 @@ def predict(image: Image.Image):
     class_idx = np.argmax(prediction)
     confidence = float(prediction[0][class_idx])
     return class_names[class_idx], confidence
+
 
 # Streamlit UI
 st.set_page_config(page_title="🌿 AgriDoctorAI", layout="centered")
@@ -95,14 +97,24 @@ if uploaded_file is not None:
             label, confidence = predict(image)
 
         st.success(f"Prediction: {label}")
-        
+
         # Proper progress bar for confidence (0 to 100)
         progress_bar = st.progress(0)
         progress_bar.progress(min(int(confidence * 100), 100))
-        
+
         st.info(f"Confidence: {confidence * 100:.2f}%")
 
     except Exception as e:
         st.error(f"Error processing the image: {str(e)}")
 
-st.markdown("</div>", unsafe_allow_html=True)
+# st.markdown("</div>", unsafe_allow_html=True)
+st.markdown(
+    """
+    <style>
+        footer {
+            visibility: hidden;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
