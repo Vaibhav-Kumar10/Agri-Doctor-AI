@@ -5,15 +5,16 @@ from PIL import Image
 import os
 
 # Paths
-MODEL_DIR = "model"
-MODEL_FILE = "plant_disease_model.keras" 
-MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILE)
+# MODEL_DIR = "model"
+# MODEL_FILE = "model\plant_disease_model.keras" 
+# MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILE)
+MODEL_PATH = "model\plant_disease_model.keras"
 
 UPLOAD_FOLDER = "uploads"
 
 # Create uploads folder if not exists
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+# if not os.path.exists(UPLOAD_FOLDER):
+    # os.makedirs(UPLOAD_FOLDER)
 
 # Load model
 try:
