@@ -8,13 +8,17 @@ import os
 # MODEL_DIR = "model"
 # MODEL_FILE = "model\plant_disease_model.keras" 
 # MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILE)
-MODEL_PATH = "model\plant_disease_model.keras"
 
 UPLOAD_FOLDER = "uploads"
 
+MODEL_PATH = "model/"
+# model = tf.keras.models.load_model(MODEL_PATH)
+
+
+
 # Create uploads folder if not exists
 # if not os.path.exists(UPLOAD_FOLDER):
-    # os.makedirs(UPLOAD_FOLDER)
+#     os.makedirs(UPLOAD_FOLDER)
 
 # Load model
 try:
